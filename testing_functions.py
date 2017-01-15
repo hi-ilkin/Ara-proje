@@ -1065,7 +1065,7 @@ for index, inst in enumerate(test_data):
 jvm.stop()
 
 print("Testing galiba gitmedi")
-
+print("Bu sefer gitti")
 
 
 
