@@ -1064,7 +1064,7 @@ for index, inst in enumerate(test_data):
 
 jvm.stop()
 
-print("Testing git")
+print("Testing gitmedi")
 
 
 

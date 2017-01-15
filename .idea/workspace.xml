@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/../../Calismalar/python/nlp_project/Summarize.py" line="247" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f57c6397-7c04-492f-b62e-2d670dbc22cd" name="Default" comment="">
+    <list default="true" id="f57c6397-7c04-492f-b62e-2d670dbc22cd" name="Default" comment="j">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing_functions.py" afterPath="$PROJECT_DIR$/testing_functions.py" />
     </list>
@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/testing_functions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="314">
-              <caret line="1066" column="18" lean-forward="false" selection-start-line="1066" selection-start-column="18" selection-end-line="1066" selection-end-column="18" />
+              <caret line="1066" column="22" lean-forward="false" selection-start-line="1066" selection-start-column="22" selection-end-line="1066" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -487,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484520569981</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="j">
+      <created>1484521318053</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1484521318053</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -506,12 +513,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17559524" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20598006" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44026187" sideWeight="0.5030257" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22425249" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36988544" sideWeight="0.4969743" order="8" side_tool="false" content_ui="tabs" />
@@ -909,6 +916,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-799">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +931,7 @@
     <entry file="file://$PROJECT_DIR$/testing_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
-          <caret line="1066" column="18" lean-forward="false" selection-start-line="1066" selection-start-column="18" selection-end-line="1066" selection-end-column="18" />
+          <caret line="1066" column="22" lean-forward="false" selection-start-line="1066" selection-start-column="22" selection-end-line="1066" selection-end-column="22" />
           <folding />
         </state>
       </provider>
