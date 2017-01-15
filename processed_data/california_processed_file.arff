@@ -1,0 +1,601 @@
+%This is preprocessed tweet dataset with labels
+%project: Dogal Afetler sonrasi onemli tweetlerin belirlenmesi ve ozetlenmesi
+%preprocessed by - Ilkin Huseynli
+%date - 25.11.16
+
+
+@RELATION tweets
+
+
+@ATTRIBUTE tweet STRING
+@ATTRIBUTE label {1,0}
+
+
+@DATA
+'ïwhat earthquake ',0
+'san francisco hit pics ',0
+'bert inlaws friends ok rita seems mia trouble paradise ',0
+'sunset boulevard hollywood los angeles california ',0
+'magnitude earthquake shakes san francisco bay area california ',0
+'sisters best friend moved california college far shes met kim kardashian shes going vmas tonight adopt ',0
+'california get minute lunches even much time ',0
+'hope family california okay ',0
+'good gracious poor dear cali glad youre alright hope everyone well safe california ',0
+'new hire talking earthquake long ',0
+'instagram map photos videos downtown todays magnitude earthquake ',0
+'photo williamgjstormyblog omg thatï½s earthquake woke meï½ epicenter near vallejo ca ',0
+'gab arent ',0
+'lives sucky city ',0
+'whyd come back ponder heres states gdp nipping countries heels ',0
+'earthquake strikes heart california wine country harvest season begins ',0
+'come see section rock perform tonight epic lounge downey california pm bucksï½ ',0
+'california baby shampoo bodywash super sensitive ozby califor ',0
+'im really upset didnt feel earthquake ',0
+'well enjoy west hopefully wont earthquake ',0
+'least injured early morning earthquake near napa calif ',0
+'love living california ',0
+'strong california quake causes injuries damage napa calif ap ï½ largest earthqu via ',0
+'earthquake ',0
+'latest damaging ',0
+'u guys hear earthquake ',0
+'soooo earthquake day pool party ',0
+'kind hoping exboss wine cellar gun collection rutherford trashed earthquake ',0
+'hope u fine big earthquake morning ',0
+'everyone north california well stay safe ',0
+'im glad youre tweeting survived earthquake ',0
+'due earthquake napa today solicited input shamrock renewable network want tï½http ',0
+'california quail chicks start running hour hatch ',0
+'prays go people experienced earthquake ',0
+'state ',0
+'ok earthquake hit ',0
+'want check webpages winners amigocloud helpful hands chargebeacon ',0
+'cnn told uncertainty ½ ',0
+'nominada por ',0
+'thoughts prayers california ',0
+'buildings severely damaged california quake ',0
+'calendula newborn tote pieces set california babyby californi ',0
+'lot bottled water sold today costco vital survival htï½ ',0
+'several buildings napa uninhabitable earthquake news kcra home via ',0
+'wanted housing prices fall actual houses ',0
+'ty earthquake northern cali crystal feel ',0
+'earthquake wine ï½ earthquake ',0
+'anyone feel earthquake last night ',0
+'earth excited bday decided quake happy st andï½ ',0
+'earthquake thats moving ',0
+'wanted check people cali hearing earthquake response ',0
+'sadly children californias foster care system guinea pigs risky drugs control behavior ',0
+'perros wong california ',0
+'apparently slept earthquake morning ',0
+'ï½ justin los angeles california august nd ',0
+'oh california ',0
+'diehard disney fans begin line pm wed hours thursday opening disneys california adventure ',0
+'good news earthquake early warning system works ',0
+'robbers ',0
+'lol slept earthquake ',0
+'welcome welcome lost pets southern california youï½ve lost found dog ',0
+'novato california ï½ clear ',0
+'survived earthquake youre ',0
+'glad indycar race today drivers ok earthquake ',0
+'hey california wanna save water fining shit farmers irrigate middle day ',0
+'california tomorrow ',0
+'felt tremors last night apparently earthquake bay area dang ',0
+'people injured critical condition earthquake ',0
+'really missing california ',0
+'time benefiting california scenario noguchi garden ',0
+'northern california looks like quake ',0
+'maddie blames earthquake norcal boys norcal wwa tour date norcal angry ',0
+'people critically injured california quake ',0
+'first time life actually felt earthquake ',0
+'ill miss geovany enjoy california reefer ',0
+'wanna pack tell nobody dip colorado california start new life min ',0
+'heart breaks affected california wine country quake stay safe people wine ',0
+'cant believe im actually leaving california tonight ',0
+'strong california quake causes injuries damage magnitude earthquake northern california causes injuries da ',0
+'avelino c car spotting channel ',0
+'excited school year bc california trip concerts look good hell ',0
+'bad thought earthquake mom banging door kinda freaked ',0
+'prayers thoughts go effected california ',0
+'lindsey yeah first thought walking around ',0
+'napa wasnt centered faultline seems like ',0
+'exciting day starting earthquake would missed wife better detector ',0
+'new km ssw kiska volcano alaska ',0
+'making ',0
+'checked california pizza kitchen ',0
+'strikes km se min ago info ',0
+'storm sun came viï½a del mar ',0
+'northern california ',0
+'',0
+'non hve saying california welcome get f nice day ',0
+'glad first earthquake memorable ',0
+'lol saying worst quake california years reads though maths ',0
+'surfskate ',0
+'california man dies backstage shooting concert via android app ',0
+'x stronger ',0
+'dr vino napa quake registers area south napa center big earthquake overnight ',0
+'earthquake woke thread ',0
+'youre california missed intense part ',0
+'earthquake shook room last night san mateo hope everyone okay andï½ ',0
+'apes kind plate boundary lies along california northern california rocked magnitude earthquake ',0
+'people california born charted via ',0
+'napa earthquake numerous buildings uninhabitable ',0
+'state emergency declared massive quake hits northern california california gov jerry brown declares stat ',0
+'dear mom california trash heap survived earthquake convinced death least myï½ ',0
+'california loan online ',0
+'freaky first time plane train dont know really happened hear earthquake ',0
+'im hella california im beyond aware ',0
+'early morning earthquake cleaning broken glass looks like house chimney ok ',0
+'gaza whos getting hit magnitude earthquake humanity left us feel ',0
+'busy weekend geol hazards front morning largest quake sf bay area since loma prieta earthquake ',0
+'san diego hasnt earthquake years ',0
+'dont understand everyone thinks earthquake funny yall sound ignorant af condolences everyone effected ',0
+'earthquake man still remember horrible day ',0
+'km nw american canyon california time utc ',0
+'earthquake iggy azalea suge knight little league world series charter doctor nascar clevelandï½ ',0
+'gotta ',0
+'ï½ photo california ',0
+'ï½ actually life couldnt agree ',0
+'experiences frequent damaging alaska experiences greatest number large earthquakes ',0
+'cities state emergencies ',0
+'sonoma last night earthquake crazy never felt anything like ',0
+'california girls unforgettable diasy dukes bikinis top ',0
+'hope friends safe ',0
+'hope well affected earthquake ',0
+'tessellate ',0
+'sign need get ass california ',0
+'prayers involved sf bay area earthquake including uncle steve pops ',0
+'ï½ visit napa valley statement napa earthquake ',0
+'happened last night preearthquake love city much miss janxlin ï½ ',0
+'feeling guilty didnt feel earthquake ',0
+'hoping friends surrounding areas ok earthquake ',0
+'power human spirit ï½ california thing ',0
+'lol slept earthquake hope everyone alright ',0
+'story mornings northern ca ',0
+'sunday kids get one free kids meal per adult entree ',0
+'video biggest earthquake years rocks northern california ',0
+'woulda slept whole thing compelled console wife ',0
+'wants move miami though want return california ',0
+'strong magnitude earthquake rocks san francisco bay area dozens hurt significant damage napa ',1
+'earthquake hit napa valley california morning ',1
+'road ripped cracks earthquake hits napa valley american canyon california ',1
+'km nw american canyon california utc see ',1
+'mini earthquake ',0
+'put hotel california ',0
+'define terms reagan legalised abortion california thatcher birth britain ',0
+'photos earthquake jolts bay area ',0
+'photos strong earthquake rattles northern california aug ',0
+'photos show damage following napa earthquake ',0
+'get title energy report sonoma california ',0
+'rich napa housewives losing god damn minds earthquake broke wine bottles ',0
+'cianco registered subsidiary slidingtech industries ',0
+'never experienced earthquake lived thank god ',0
+'yosemite grant act gave yosemite valley state california requirement state maintain nature reserve ',0
+'oh ',0
+'magnitude quake northern california northern california woke ',0
+'slept right bodes well fatherhood ',0
+'bumbum california love ',0
+'magnitude earthquake cali today ',0
+'making way california madonna inn ',0
+'one mississippi mississippi mississippihow long obama left blame san fran earthquake climate change ',0
+'didnt realize california many mlb teams ',0
+'new post numerous buildings uninhabitable bay area earthquake published rush news ',0
+'oh california mess finished stops asia peninsula queen jewell ',0
+'wellbiggest earthquake years northern california happened last nightwas somewhat disappointing ',0
+'earthquake sf last night way start college ',0
+'napa earthquake oregonian editor mark katches rattled awake one last shaker ',0
+'california hasnt bad drought since ',0
+'earthquake tho ',0
+'holy crow facebook wtf one talking earthquake hit western coast napa valley near san francisco ',0
+'ï½ man fatally struck arrow southern california ',0
+'daylight people ',0
+'ï½ new bill next year allowing dogs california restaurants outdoor spaces ',0
+'gov jerry brown declared state emergency southern napa county todays magnitude earthquake ',0
+'back california transformed pinup girl ',0
+'im seeing ',0
+'happened earthquake ',0
+'think near california screaming ',0
+'fb friends california im need great mua los angeles please tag someone know ',0
+'offer ashley milk donate ',0
+'man fatally shot backstage california concert ',0
+'earthquake ',0
+'use force dropped ',0
+'california winemakers cleaning quake winemakers californias storied napa valley woke thous ',0
+'game despite earthquake wondering ',0
+'think caused earthquake ',0
+'sad see lost property damage livelihood many ï½ earthquake napa like ',0
+'sam mikulak rallies win second us gymnastics title dont fooled mikulaks california c ',0
+'questions answers california earthquake ushed ',0
+'california weekend ',0
+'man shot killed wiz khalifa concert california ',0
+'proof earthquake taylors fault biggest one since whats new album titled coincidence think ',0
+'earthquake ',0
+'shattered shower door last nights earthquake miles epicenter ',0
+'pm midday california lottery results ',0
+'earthquake boy tell ',0
+'earthquake footage scary ',0
+'questions answers california earthquake magnitude earthquake struck th ',0
+'hustle hard day slept thru earthquake ',0
+'san francisco earthquake injures dozens biggest quake decades knocks power ',0
+'earthquake last night biggest years woke incredible shaking ',0
+'ï½ bay area like los angeles ½ sorry southern california ',0
+'earthquake broke garage lol ',0
+'earthquake san franstill playing game ',0
+'quake northern california ',0
+'gonna go anywhere else california ',0
+'hahahaha dad brothers killed nanay california month im cooking ',0
+'travel lassen national park california ï½ episode transcript see ',0
+'would panic small earthquake ',0
+'napa largest years looking pictures best wishes affected another ex uptick global activity ',0
+'francisco earthquake injures dozens ',0
+'earthquake aunts friends house ',0
+'local families weather napa earthquake ',0
+'covers interviews geologist god jesus howwhy happened watch later night ',0
+'sad napa earthquake multiple levels buckle aftershocks please ',0
+'hope good friends california ok earthquake sending love australia mia x ï½ feeling sad ',0
+'instead finding doorway hide earthquake found phone google earthquake feel like ',0
+'mag shakes sf bay area ',0
+'napa earthquake ucberkeley shakealert system gave second warning light shaking scientist ',0
+'southern california friends ',0
+'earthquake bay area major damage lot napa morning including one ',0
+'whew thank goodness pool tiki bar earthquake proofthat could tragicï½ ',0
+'ps im sure earthquake earlier openstack making presence known fun ',0
+'quake sports events go ',0
+'km se geysers california time utc ',0
+'bye bye hilmar hellow los banos ï½ traveling los banos california ',0
+'wasï½ ',0
+'earthquake serious damage ',0
+'earthquake footage scary ',0
+'earthquake flop ',0
+'reason colon pitched well california allowing runs earned hits innings including today ',0
+'instead waking earthquake almost slept hours straight lol ',0
+'deli open stop family relax chaos ',0
+'photos businesses need clean earthquake look like accessories section hm ',0
+'watch cnn napa county officials hold news briefing earthquake ',0
+'happy sunday topanga ',0
+'questions answers california earthquake magnitude earthquake struck san francisco bay ',1
+'watch nearly injured bay areas biggest quake years northern california residen ',1
+'im upset ive still yet feel earthquakelike whatwhy ',0
+'yes thankfully sf wasnt epicenter earthquake im okayjust shaken lmao literally ',0
+'california usa norwalk breaking news nick cannon mariah carey nick cannon reportedly splitting ',0
+'traveling california coast hubby bixby bridge ',0
+'white people resourceful hell ï½ california earthquake damage skatepark ',0
+'earthquake iggy azalea suge knight little league world series charter ',0
+'apparently slept earthquake like always ',0
+'sounds like quite shake san fran napa thinking folks nz ',0
+'earthquake ate homework ',0
+'soi didnt even notice earthquake read ',0
+'california parlor car steps measures score profuse quotes alias profuse forget rates things go parlor car operators gangway californ ',0
+'california seems really suffering ',0
+'lets go ï½ disney california adventure ',0
+'napa ca california winemakers cleaning quake ',0
+'lol felt earthquake thought dumbass falling ',0
+'screenshot pges outage map sunday hours earthquake hit near napa napa ï½ ',0
+'first many santa barbara weekends santa barbara california ',0
+'thinking impacted thank first responders local law enforcement strong coordinated efforts ',0
+'anchor cnn asked napa earthquake big one isnojoke isnotthebigoneeither ',0
+'obama keep attaking uswell keep killing pepole kill ',0
+'',0
+'prioï½ ',0
+'ï½ destressing earthquake apple store corte madera ',0
+'autumn ',0
+'first perceptible earthquake ',0
+'san francisco earthquake causes devastating loss wine ',0
+'got news australia state emergency california hope ok ',0
+'new post san francisco earthquake injures dozens ',0
+'california gets hit earthquake happens familys winery locatedi cant wait ',0
+'last night drive shooting outside house min later fucking earthquake ',0
+'plan b sitting immigration office somewhere california ',0
+'gardens u naval hospital balboa park san diego california ',0
+'joe feel earthquake saw news north ',0
+'delicious pollo loco avocado salsa twocheese stuffed green chile ',0
+'everyone tweeting earthquake ',0
+'big star moving questions answers california earthquake however earthquake mover ',0
+'least p ',0
+'bet earthquake really san fransiscos heart breaking robin williams ',0
+'gov jerry brown issues state emergency south napa quake northern california via ',0
+'drought leaves california homes without water ',0
+'news story video richard allen berkeley seismo lab ',0
+'earthquake one shook us sleep well us passed wake shaken buildings spirits ',0
+'talladega played hotel california ',0
+'earthquake footage scary e ',0
+'people california earthquake like says bible wise man built house rocks ',0
+'good know earthquake last night slept like baby ',0
+'without human rights mean like way israeli treated palestinians ',0
+'jetpack ride overï½california ',0
+'showing places ',0
+'hotel california bob marley ',0
+'power went __ today californias day first earthquake power ',0
+'northern california earthquake magnitude prompts state emergency napa area ',0
+'state emergency declared california earthquake ',0
+'trip california turned quite destructive broke phone watch pants guitar get earthquake help ',0
+'create amazing custom start project today ',0
+'planning math writing today sleepdeprived earthquake garter st ',0
+'southbound amtrak train departed chico hour delay trains delayed postearthquake track checks ',0
+'cant believe missed earthquake ',0
+'giants fans even year year ',0
+'earthquake insurance expensive deductibles high though ',0
+'holy grail ',0
+'strong california quake causes injuries damage largest earthquake ',0
+'san francisco around course otherwise nice reporting todays ',0
+'next expected earthquake going bigger fuck ',0
+'im glad okay heard news earthquake napa ',0
+'hope everybody know bay area okay wasnt traumatically effected earthquake sending good vibes ',0
+'im getting california soon ',0
+'slept earthquake ',0
+'napa earthquake ucberkeley shakealert system gave second warning light shaking ',0
+'video california shaken earthquake ',0
+'earthquake hofn iceland ',0
+'abc news couple still losing everything fire earthquake ',0
+'quake hits california wine country powerful quake struck winegrowing region northern ',0
+'jeff gordon dupont california raced win version action diecast car ',0
+'anyway learned earthquake n ca around napa strong ',0
+'video northern california strongest years ',0
+'new post fortytwo states risk earthquake residents prepare ',0
+'earthquake lastnight saidi wouldnt know cause uh nigga passed uh th goose ',0
+'vacation podcast home earthquake crazy morning love ',0
+'earthquake ',0
+'slept thru earthquake ',0
+'cleanup underway right napa earthquake today tune look done ',0
+'oh god earthquake happened california lives therei concerned ',0
+'really want go see fresno california ',0
+'cnn northern california earthquake strongest years cnn cnn strongestï½ ',0
+'lets see celebrity suicide ebola outbreak mid east wars race riots beheading earthquake next lord ',0
+'hope youre ok read earthquake city ',0
+'biggest bay area earthquake years slept like rock right ',0
+'hope everyone bay area alright today following earthquake ',0
+'photo anime california kimihirokun flickr anime california ',0
+'earthquake footage scary fe ',0
+'bathroom already hot mess earthquake cleaned bit ',0
+'pretty happy got experience san francisco earthquake ',0
+'dan walters drought leads california rethink water management ',0
+'even though miss utah like crazy dont think could ever go back live love california much ',0
+'earlier mom watching news earthquake napa knocked woke thinking random dream yikes ',0
+'napa damaged hurt northern california quake via ',1
+'critically injured sent hospital quake rattles californias napa region via ',1
+'strong magnitude quake hits nthern california injuring dozens damaging historic buildings napa via ',1
+'earthquake rocks northern california napa valley earthquake ',1
+'thanks much asking im fine fallen things ',0
+'earthquake damage either campus injuries report orientation events proceed scheduled ',0
+'ï½ images california powerful earthquake struck sunday morning photo ap ',0
+'slept earthquake last night ive discovered im probably one coworkers ',0
+'leaving mountains behind gratitude days changed life city loved ones staying unharmed earthquake ',0
+'hope family ok quake rocks california ',0
+'earthquake seriously slept poop ',0
+'earthquake like whoa ',0
+'overs southern california orange county ',0
+'mustfollow earthquake science ',0
+'alter lives earth hereafter speak life daily routine ',0
+'didnt feel earthquake ',0
+'heheh earthquake northern california ',0
+'family probably fucked feel earthquake ',0
+'ap usa california winemakers cleaning quake napa calif ap ï½ winemakers californias storied ',0
+'im done california family im messing ',0
+'followup projected follow week ',0
+'obviously mere precursor big one california soon fall coast fare thee well ',0
+'guess slept magnitude earthquake sister mom alarmed shakingme ',0
+'worries newport beach california ',0
+'bet high fived caused earthquake ',0
+'cant believe many affected terrible earthquake ',0
+'california quake one usas strongest year via ',0
+'ï½ earthquake oh ',0
+'nice walk cousins little country road grass growing middlenow thats something see california ',0
+'earthquake footage scary fk ',0
+'songs akkadian occasions ',0
+'texas california ',0
+'going really expensive earthquake wine business ',0
+'best western plus hollywood hills angeles hotels review comments ',0
+'please retweet stay safe ',0
+'wine country shakes live webcast ',0
+'earthquake thoe ',0
+'thanks everyone checked tho definitely felt earthquake tho ',0
+'km nw american canyon california time utc ',0
+'earthquake earlier yes ok ',0
+'earthquakethe relevancy ',0
+'deprem aglasun ',0
+'making best shit situation ',0
+'hows california ',0
+'hahaha sorry lived california id drive las vegas see ',0
+'rly miss california ',0
+'ironic drove home listened robin williams talk californias earthquakes day ',0
+'anyone feel earthquake ',0
+'wanna feel earthquake ',0
+'eternal drought part taking longest showers history california ',0
+'guys live affected area california know hope belongings okay ',0
+'oh jesus guess mini quakes normal mini earthquake sec think scary ',0
+'earthquake nico tranquilli earthquake app iphone ipad get latest worldwide data multiple ',0
+'news quake hits northern california ',0
+'earthquake lol straight edge revenge ',0
+'southern california needs get ready could next ',0
+'live california think time leave jenifer anderson pearl family ',0
+'beau earthquake sf shook hard really thought going die ',0
+'watching images cali earthquake hope u ur famfriends every safe huge kiss ',0
+'aesthetician nail technician granada hills mission hills want become part ',0
+'please pray theres nothing coverage ',0
+'itunesguatemala pepe california yes ',0
+'get outta ya damn hippies ',0
+'although initial napa good intensity nice hues brick aftershocks bit astringent side ',0
+'preparing die next earthquake ',0
+'san francisco letting blaine gabbert take snaps earthquake worse thought ',0
+'dont speak words lightly soul needs fed word god knock door behalf god ',0
+'one ca thinks earthquake cant happen neither think gov come save us insur cost prohibitive ',0
+'governor declares state emergency magnitude earthquake strikes san francisco bay area ',0
+'earthquake km w anchor point alaska sunday august utc sunday august ',0
+'back california ',0
+'get flag ',0
+'apparently earthquake morning something busy trying unfuck sleep schedule even notice ',0
+'hope folks california usa okay sounds like bit shake ',0
+'want outside earthquake like wanna see looks ',0
+'heard earthquake california worried please follow mee x ',0
+'via tryaryforyou skateboarders turn damaged street ramp california earthquake wak ',0
+'signs youre one ghetto areas southern california northgate market ',0
+'earthquake must wasnt big cause didnt wake ',0
+'found ',0
+'anyone whos following feel earthquake california mttracks ',0
+'didnt feel earthquake asked good didnt know thought nice ',0
+'last sunday augth said something terrible coming california chicagoï½ ',0
+'im shocked see california winemakers dont special way hold bottles case earthquakes ',0
+'check latest earthquake subwoofer ',0
+'couldnt sworn felt another _ ',0
+'moving california days ',0
+'california please sign ',0
+'heard earthquake california worried please follow mee ',0
+'play worms knight maria ',0
+'dont think guys understand recreational marijuana use legal washington colorado play california ',0
+'earthquake footage scary mb ',0
+'latest damaging earthquake california napa calif ap associated press reporters ',0
+'video trip enjoy ',0
+'love weekend tomorrow go back school weekend fun earthquake ',0
+'california governor declares state emergency record quake ',0
+'got california next year probably could also dont want die ',0
+'seriouslyeverything see hear either california napa valley ',0
+'new rosetta stones earthquake safety tips funny thing iï½d looking real ',0
+'hope survived cali earthquake ',0
+'ashley marie lewin smith age last seen may littlerock california ',1
+'injured critical massive earthquake hits northern california ',1
+'earthquake california epicenter miles southwest napa valley un estado de emergencia se ',1
+'californians fear big one people jolted awake earthquake measured ',0
+'california governor declares state emergency record quake ',0
+'california ',0
+'concerned lyft earthquake ',0
+'latest damaging earthquake california associated press via nyt ',0
+'earthquake footage scary cm ',0
+'never crossed mindï½ danger millions wine bottles earthquake country heh ',0
+'either earthquake tornado hurricane nature abhors trailer park ',0
+'hope effected earthquake ',0
+'damage injuries napa quake ',0
+'got new glass stock like lovely guilded glass oil rig made california ',0
+'puddles pity party keeping weird first city festival monterey california ',0
+'northern california earthquake strongest years ',0
+'got picture california state fair ',0
+'still like new black red gear san diego california ',0
+'wondering kid would ï½ photo california ',0
+'earthquake rocks northern california apparently richter caused damage ',0
+'earthquake last night dreaming ',0
+'½s drought ï½ whoï½s really using water ',0
+'thoughts prayers goes northern california experienced devastating earthquake morning ',0
+'read book ',0
+'california mm higher ',0
+'guess slept earthquake surprising tho ',0
+'usgs earthquake shakes californias bay area kfi via ',0
+'guess whos updating disaster kit today ',0
+'islamic state supporters exploit san francisco earthquake tragedy visas muslims ',0
+'hiring sales manager california ',0
+'californian reaction earthquake damage ',0
+'photo worth bonappetite innout burger ',0
+'im friends california adventure voting line ',0
+'great wine earthquake napa magnitude ',0
+'powerful earthquake shook california sympathy napa wineries impacted ',0
+'breaking root cause napa earthquake determined ',0
+'earthquake went hood destroyed crack houses ol roberto ford would crying river ',0
+'deep earthquake lanai shakes hawaii hawaii news honolulu staradvertiser ',0
+'major fires result helps prepare claim ',0
+'sunday funday brunch success need nap pack california ½ ',0
+'sundae fun day mini goes back school california pizza kitchen ',0
+'feel bad people hurt today earthquake san francisco ',0
+'birth pangs ',0
+'shooting ',0
+'hope everybody okay following well turn guitars ',0
+'al jazeera san francisco earthquake injures dozens biggest quake decades knocks power ',0
+'state emergency declared massive quake hits northern california via ',0
+'largest earthquake since san andreas fault asking another battle bay ',0
+'california earthquake natural act god somebody responsible ',0
+'halsted ',0
+'connection issues south el monte california internet cuts every minutes ',0
+'reasons california best view ',0
+'earthquake mb south sandwich islands region ',0
+'earthquake footage scary gl ',0
+'interesting everyone worried wine grapes destroyed earthquakewhat people ',0
+'thank lord safety families around earthquake california ',0
+'earthquake around wow ',0
+'cried heard ferguson israel california etc god city lyrics youtube chris tomlï½ ',0
+'thorough report napa quake ',0
+'taco bell damn near dog food compared mexican restaurants california yall hoes live ',0
+'yes earthquake didnt feel continue days lol ',0
+'big earthquake hit northern california morning via ',0
+'kinda wanna move citykinda wanna move california ',0
+'head spinning earthquake doo otero soto escobar jd jasobut hasnt changed windmill windmill spin ',0
+'lunch date bestie raqbeauty california pizza kitchen ',0
+'know hundreds like ',0
+'must devastated ï½ winemakers cleaning thousands broken bottles barrels earthquakeï½ ',0
+'people really six flags riding roller coasters earthquake sf aftershocks hell ',0
+'game hd dont think explain whyearthquake ',0
+'small town central california literally ran water ',0
+'wow ï½ magnitude rocked northern calif largest hit since ',0
+'r news notice forest service regional office employees many know strong earthquake ',0
+'nothing like early morning start day folks napa american canyon stay safe ',0
+'thanks everyone checking mei missed earthquake fine love yall ',0
+'california earthquake three critically injured napa hospital ',0
+'california baby spf plus sunscreen fragrance fl ozby california ',0
+'wanted let everyone know escaped earthquake relatively unscathed lost mirror ',0
+'ford mustang gtcs california special ',0
+'pacific dental services regional marketing manager california ',0
+'significant damage following magnitude earthquake centered near american canyon earthquake ',0
+'nah think honestly hate california first ever earthquake ',0
+'update strikes km se min ago ',0
+'californias drought contribute latest come ',0
+'thanks john great start post day ',0
+'dude moving back facebook earthquake still trending topic ',0
+'wish could gun laws like ones california ',0
+'strong magnitude earthquake rocks san francisco bay areadozens hurtsignificant damage napa ï½ cbs san francisco ',0
+'assemblyman bikers set protest mexican presidentï½s luncheon california gov brown ',0
+'hope everyone san fran ok earthquake yesterday ',0
+'like horror movie napa tourists rocked first earthquake ',0
+'youre jamming car hotel california forget car van peeps jelly ',0
+'canadian biz earthquake strikes heart california wine country harvest season begins ',0
+'sad hear read measuring hitï½ ',0
+'california country ',0
+'earthquake morning nw american canyon near napa wishing speedy recovery affected ',0
+'californias left nevada utah right nevada idahos square ',0
+'lol earthquake trolled sleep ',0
+'sounded like military planes today sure nancy pelosi cking hotel napa mike thompson looking camera ',0
+'whoa hearing hope folks safe ',0
+'remember first earthquake october years moved california manhattan joke look ',0
+'another earthquake san francisco ',0
+'really like heart like california cover ',0
+'lol everyones talking earthquake im like dudei passed tf didnt feel nooooooooothin ',0
+'lo ',0
+'missing beach ',0
+'california preparing say bye bye us mainlandï½ haha ',0
+'north slope gets earthquake tracking equipment ',0
+'tree camping elk california ',0
+'solid run today fitness band soaking last bit california moving boston tmrw ',0
+'yesthis first met halloween los angeles californiahe got daughter band list shows ',0
+'northern california looks like quake ',0
+'thats wrap california loved every minute treated real good ',0
+'regrettabï½ ',0
+'definitely california nï½mero uno ï½ dont sleep coloradoï½ ',0
+'hate send earthquake last night ',0
+'meadowbrook lane napa skaters finding upside quake damage ',0
+'sad ï½ earthquake ',0
+'bay area rocked magnitude earthquake ',0
+'california community colleges may soon offer year degrees ',0
+'slept thru supposedly nightmarish learned via omg r u ok messages would something actually happened ',0
+'one slept earthquake lol ',0
+'apparently earthquake felt area didnt feel anything hope everyone safe ',0
+'caloes state agencies activated operating caloes field following napa earthquake ',0
+'earthquake back home hate man ',0
+'beautiful day beautiful people shooting swimwear newport beach california ',0
+'god go let xperienc ',0
+'curious helps earthquake preparedness neighborhoods could big deal cc ',0
+'oooo much fun napa earthquake winemakers sellers assessing damage wineries closed via ',0
+'snap state emergency quake hits california ',0
+'high paying med surg tele job available napa california soliant health ca ',0
+'kno earthquake amazing damn nighas r dramatic ',0
+'thoughts friends winemakers napa valley morning ',0
+'damage earthquake around place ',0
+'planning rent hybrid los angeles california today certain steps ',0
+'earthquake ',0
+'id rather go school see effects earthquake ',0
+'napa earthquake damages historic buildings roads news kcra home via ',0
+'baby boy born earlymorning ï½ cbs san francisco ',0
+'csn offers users exclusive access earthquake modeling event analysis inlet map link ',0
+'mike mcguire donating todays tickets sales fundraiser napa red cross ',0
+'hollywood studios move florida big one hits ',0
+'strong mag earthquake near coast central chile saturday august information ',0
+'photo handle california via ',0
+'isis takes credit take wine infidels ',0
+'california cuties twitter account puts shame generation ',0
+'matter strong earthquake rock california matter rock california stay prepared ',0
+'lol didnt earthquake bc bad luck bc thats nature supposed earthquakes ',0
+'california life gives earthquakes ',0
+'absolutely reason californias specialized training institute shouldnt use powerpoint presentation ',0
+'injuries fires quake rocks napa state emergency declared nbc bay area vï½a ',1
