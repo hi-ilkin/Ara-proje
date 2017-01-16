@@ -1033,39 +1033,6 @@ mat = np.array([[0.0, 30.93, 29.74, 23.82, 51.22, 55.95, 33.17, 28.97, 43.67, 21
 # l.append(tok)
 # print(line)
 # exit()
-# ~~~~~~~~~~ weka ~~~~~~~~~~~~~~~~~~~~~~~
-import weka.core.jvm as jvm
-from weka.classifiers import Classifier
-from weka.core.converters import Loader
-import weka.plot.graph as graph  # NB: pygraphviz and PIL are required
-jvm.start()  # bunu UNUTMA !!!!
-
-# loading dataset
-data_dir = 'F:\\Internet Explorer\\'
-loader = Loader(classname="weka.core.converters.ArffLoader")
-data = loader.load_file(data_dir + "iris.arff")
-test_data = loader.load_file(data_dir+"iris_test.arff")
-data.class_is_last()
-test_data.class_is_last()
-# setting classification option
-cls = Classifier(classname="weka.classifiers.trees.J48", options=["-C", "0.25", "-M", "2"])
-
-# building classifier
-cls.build_classifier(data)
-import msvcrt as m
-
-# calssification
-for index, inst in enumerate(test_data):
-    pred = cls.classify_instance(inst)
-    dist = cls.distribution_for_instance(inst)
-    print(str(index+1) + ": label index=" + str(pred) + ", class distribution=" + str(dist))
-
-# print(data)
-
-jvm.stop()
-
-print("Testing galiba gitmedi")
-print("Bu sefer gitti")
 
 
 

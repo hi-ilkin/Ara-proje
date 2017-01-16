@@ -1,26 +1,37 @@
-# import weka.core.jvm as jvm
-#
-# jvm.start()
-
+# ~~~~~~~~~~ weka ~~~~~~~~~~~~~~~~~~~~~~~
+import weka.core.jvm as jvm
+from weka.classifiers import Classifier
 from weka.core.converters import Loader
+from weka.core.classes import split_options as split
+jvm.start()  # bunu UNUTMA !!!!
 
-# data_dir = 'F:/Internet Explorer/Ders/Ara proje/Kodlama/processed_data'
-# loader = Loader(classname="weka.core.converters.ArffLoader")
-# data = loader.load_file(data_dir + "nagano_processed_file.arff")
-# data.class_is_last()
+# loading dataset
+data_dir = 'F:\\Internet Explorer\\Ders\\Ara proje\\Kodlama\\processed_data\\'
+loader = Loader(classname="weka.core.converters.ArffLoader")
+data = loader.load_file(data_dir + "nagano_train.arff")
+test_data = loader.load_file(data_dir+"nagano_test.arff")
+data.class_is_last()
+test_data.class_is_last()
+# setting classification option
+# weka.classifiers.meta.FilteredClassifier -F
+# "weka.filters.unsupervised.attribute.StringToWordVector -R first-last -W 1000 -prune-rate -1.0 -N 0 -stemmer weka.core.stemmers.NullStemmer -stopwords-handler weka.core.stopwords.Null -M 1 -tokenizer \"weka.core.tokenizers.WordTokenizer -delimiters \\\" \\\\r\\\\n\\\\t.,;:\\\\\\\'\\\\\\\"()?!\\\"\"" -W weka.classifiers.functions.SMO -- -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+option=split( 'weka.classifiers.meta.FilteredClassifier -F "weka.filters.unsupervised.attribute.StringToWordVector -R first-last -W 1000 -prune-rate -1.0 -N 0 -stemmer weka.core.stemmers.NullStemmer -stopwords-handler weka.core.stopwords.Null -M 1 -tokenizer \"weka.core.tokenizers.WordTokenizer -delimiters \\\" \\\\r\\\\n\\\\t.,;:\\\\\\\'\\\\\\\"()?!\\\"\"" -W weka.classifiers.functions.SMO -- -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"')
+print(option)
+cls = Classifier(classname="weka.classifiers.meta.FilteredClassifier", options=option)
+
+# building classifier
+cls.build_classifier(data)
+import msvcrt as m
+
+# calssification
+for index, inst in enumerate(test_data):
+    pred = cls.classify_instance(inst)
+    dist = cls.distribution_for_instance(inst)
+    print(str(index+1) + ": label index=" + str(pred) + ", class distribution=" + str(dist))
 
 # print(data)
-# # print(vs)
-# from sklearn import svm
-#
-# X = [[0, 0], [1, 1]]
-# y = [0, 1]
-# clf = svm.SVC()
-# clf.fit(X, y)
-# svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-#     decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
-#     max_iter=-1, probability=False, random_state=None, shrinking=True,
-#     tol=0.001, verbose=False)
-#
-# clf.predict([[2., 2.]])
-# array([1])
+
+jvm.stop()
+
+print("Testing galiba gitmedi")
+print("Bu sefer gitti")
