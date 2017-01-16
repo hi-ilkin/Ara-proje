@@ -1,0 +1,15 @@
+@RELATION tweets_test
+
+
+@ATTRIBUTE tweet STRING
+@ATTRIBUTE label {1,0}
+
+
+@DATA
+
+'japan,earthquake,collapses,homes,causes,injuries,strong,earthquake,struck,hakuba,ski,resort,n,'1
+'japan,earthquake,collapses,homes,causes,injuries,strong,earthquake,struck,hakuba,ski,resort,near,nagano,'1
+'heart,prayers,go,japan,affected,earthquake,thoughts,'0
+'epicenter,nagano,northern,area,max,shindo,'0
+'breaking,strong,earthquake,hits,japan,nagano,prefecture,nov,via,'0
+'breaking,strong,earthquake,hits,japan,nagano,prefecture,nov,via,'0
