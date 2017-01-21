@@ -35,7 +35,7 @@ cls = Classifier(classname=option[0], options=option[1:])
 cls.build_classifier(data)
 
 # calssification
-for index, inst,tw in enumerate(test_data):
+for index, inst in enumerate(test_data):
     pred = cls.classify_instance(inst)
     dist = cls.distribution_for_instance(inst)
     print(str(index+1) + ": label index=" + str(pred) + ", class distribution=" + str(dist))

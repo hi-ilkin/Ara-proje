@@ -1035,7 +1035,48 @@ mat = np.array([[0.0, 30.93, 29.74, 23.82, 51.22, 55.95, 33.17, 28.97, 43.67, 21
 # exit()
 
 
+# ~~~~~~~~~~~~ dict test ~~~~~~~~~~~~
+class Similarity_Matrix:
+    __UHU = []
+    __cosine_similarity = []
+    __edit_distance = []
+    __term_level_sim = []   # term level similarity graph
+    __semantic_sim = []     # semantic similarity graph
+    __similarity_graph = [] # total similarity = term + semantic
+    __tweets = []  # a list that keeps all tweets
 
+    __normilize_max = 10
+    __normilize_min = 0
+
+    __key_map = {'uhu': __UHU, 'cosine': __cosine_similarity, "ed": __edit_distance, 'semantic': __semantic_sim,
+               "similarity": __similarity_graph}
+
+    def initialize(self, tweet_count):
+        for key in self.__key_map:
+              key = np.zeros((tweet_count, tweet_count))
+
+    def getValue(self, name):
+        return self.__key_map[name]
+
+
+def getSim(name):
+    tweet_count = 10
+
+    __sim1 = np.zeros((tweet_count, tweet_count))
+    sim2 = np.zeros((tweet_count, tweet_count))
+    sim3 = np.zeros((tweet_count, tweet_count))
+    __sim1[0][0] = 1
+    sim2[0][0] = 2
+    sim3[0][0] = 3
+
+    name_dict = {'sim1': __sim1, 'sim2': sim2, "sim3": sim3}
+
+
+    return name_dict[name][0][0]
+
+# print(getSim('sim1'))
+
+print(getSim('sim3'))
 
 
 

@@ -18,7 +18,7 @@ def noiseCleaning(summarize):
     tokenizing dataset and returning tokenized set
 
     :param summarize: obj of Similarity_Matrix
-    :return: cleaned and tookenized dataset
+    :return: cleaned and tokenized dataset
     """
     tokenized_dataset = []  # keeps tokenized tweets
 
@@ -50,7 +50,7 @@ def cc_UHU(summarize):
     """
 
     # number of lines in our tweet set
-    tweet_count = summarize.tweet_len()
+    tweet_count = summarize.tweet_count()
 
     # TODO: TERM SIMILARITY:
     # TODO: count similar URL , USERNAME and HASHTAGS
@@ -75,13 +75,13 @@ def cc_UHU(summarize):
             # length of this intersection is similar url/username/hashtag count between 2 tweets
 
             # intersect url
-            summarize.increase_term_level_sim(i, j, len(set(url_match_i).intersection(url_match_j)))
+            summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
 
             # intersect usernames
-            summarize.increase_term_level_sim(i, j, len(set(usrname_match_i).intersection(usrname_match_j)))
+            summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
 
             # intersect hashtags
-            summarize.increase_term_level_sim(i, j, len(set(hashtag_match_i).intersection(hashtag_match_j)))
+            summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
 
             # old version of cleaning
             # tokenized_clean_tweets = prep.noiseCleaning(tokenized_dataset)  # noise cleaning
@@ -102,7 +102,7 @@ def calc_cosine(summarize, tweets):
     :param tweets: list of tokenized tweets
     """
 
-    tweet_count = summarize.tweet_len()
+    tweet_count = summarize.tweet_count()
 
     for i in range(0, tweet_count - 1):
         for j in range(i + 1, tweet_count):
@@ -148,7 +148,7 @@ def calc_semantic_sim(summarize, tweets):
 
     """
 
-    count = summarize.tweet_len()
+    count = summarize.tweet_count()
 
     # calculating common synsets of two tweets
     for i in range(0, count):
@@ -191,7 +191,7 @@ def select_summarize(summarize, *args):
 
     # summarizing without clustering
     else:
-        count = summarize.tweet_len()
+        count = summarize.tweet_count()
         weight_1 = np.zeros(count, dtype=np.int64)
         for i in range(0, count):
             # print(np.sum(similarity[i]))
@@ -253,7 +253,7 @@ def main():
     print('OK!')
 
     # number of lines in our tweet set
-    tweet_count = summarize.tweet_len()
+    tweet_count = summarize.tweet_count()
 
     # initializing matrices with 0
     print('Initializing matrices with value 0...', end='')
