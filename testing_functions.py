@@ -1059,24 +1059,30 @@ class Similarity_Matrix:
         return self.__key_map[name]
 
 
-def getSim(name):
+def getSim(name,value):
     tweet_count = 10
 
-    __sim1 = np.zeros((tweet_count, tweet_count))
-    sim2 = np.zeros((tweet_count, tweet_count))
-    sim3 = np.zeros((tweet_count, tweet_count))
-    __sim1[0][0] = 1
-    sim2[0][0] = 2
-    sim3[0][0] = 3
+    # __sim1 = np.zeros((tweet_count, tweet_count))
+    # sim2 = np.zeros((tweet_count, tweet_count))
+    # sim3 = np.zeros((tweet_count, tweet_count))
+
+    __sim1 = []
+    sim2 = []
+    sim3 = []
 
     name_dict = {'sim1': __sim1, 'sim2': sim2, "sim3": sim3}
 
+    for key in name_dict:
+        name_dict[key] = np.zeros((tweet_count, tweet_count))
 
-    return name_dict[name][0][0]
+    # print(name_dict['sim1'])
+
+    name_dict[name][0][0] += value
+    return name_dict[name]
 
 # print(getSim('sim1'))
 
-print(getSim('sim3'))
+print(getSim('sim3',4))
 
 
 

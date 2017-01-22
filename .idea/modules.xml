@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Kodlama.iml" filepath="$PROJECT_DIR$/.idea/Kodlama.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../Calismalar/python/projects_with_py3.6/.idea/projects_with_py3.6.iml" filepath="$PROJECT_DIR$/../../Calismalar/python/projects_with_py3.6/.idea/projects_with_py3.6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Calismalar/python/TInter_Tutorial/.idea/TInter_Tutorial.iml" filepath="$PROJECT_DIR$/../../Calismalar/python/TInter_Tutorial/.idea/TInter_Tutorial.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Calismalar/python/.idea/python.iml" filepath="$PROJECT_DIR$/../../Calismalar/python/.idea/python.iml" />
     </modules>
   </component>

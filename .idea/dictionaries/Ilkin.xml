@@ -2,6 +2,7 @@
   <dictionary name="Ilkin">
     <words>
       <w>alinarak</w>
+      <w>classifycation</w>
       <w>dataset</w>
       <w>dirnames</w>
       <w>dirpath</w>
@@ -17,6 +18,8 @@
       <w>levensthein</w>
       <w>normalizied</w>
       <w>preprocess</w>
+      <w>synset</w>
+      <w>synsets</w>
       <w>tokenized</w>
       <w>tweetler</w>
       <w>usernames</w>

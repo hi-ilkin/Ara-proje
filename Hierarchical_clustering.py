@@ -4,19 +4,19 @@
 import numpy as np
 
 
-def cluster(mat):
+def cluster(mat, sim_percent=0.7):
     """
     Single Linkage Hierarchical Clustering for given similarity matrix
 
     :param mat: numpy.ndarray , similarity matrix
-    :param threshold: threshold value for clustering
+    :param sim_percent: threshold percentage for clustering
     :return: returns list of labels. Each row demonstrates a cluster
     """
 
     label = []  # keeps clustered ids. Each row is a cluster
     sim_value = np.amax(mat)  # largest similarity value of the list
+    threshold = sim_percent*sim_value # threshold is 70% percent of max value
     count = mat.shape[0]
-    threshold = 120
 
     while sim_value >= threshold:
         # row and column value(s) of the list

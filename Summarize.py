@@ -3,11 +3,13 @@ from collections import Counter
 import math
 
 import numpy as np
+import time
+
 import preprocess_and_create_arff as prep
 import tweet_preprocessor as tp
 import editdistance as ed
 from nltk.corpus import wordnet as wt
-from Similarity_Matrix import Similarity_Matrix as SMM
+from SimilarityMatrix import SimilarityMatrix as SMM
 import Hierarchical_clustering as hc
 from normalizr import Normalizr
 
@@ -73,107 +75,37 @@ def cc_UHU(summarize):
 
             # intersect 2 matching object gives us a set of similar elements
             # length of this intersection is similar url/username/hashtag count between 2 tweets
+            try:
+                # intersect url
+                summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
 
-            # intersect url
-            summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
+                # intersect usernames
+                summarize.increase_value('uhu', i, j, len(set(usrname_match_i).intersection(usrname_match_j)))
 
-            # intersect usernames
-            summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
-
-            # intersect hashtags
-            summarize.increase_value('uhu', i, j, len(set(url_match_i).intersection(url_match_j)))
-
+                # intersect hashtags
+                summarize.increase_value('uhu', i, j, len(set(hashtag_match_i).intersection(hashtag_match_j)))
+            except IndexError:
+                print("\nCurrent indexes are: {} , {}\n".format(i, j))
+                exit()
             # old version of cleaning
             # tokenized_clean_tweets = prep.noiseCleaning(tokenized_dataset)  # noise cleaning
 
 
-#############################################################################################
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END of cc_UHU(summarize) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#############################################################################################
-
-# todo: cosine similarity
-def calc_cosine(summarize, tweets):
-    """
-    Calculates cosine similarity between tweets.
-    Multiples result with a constant (to make cosine similarity more weighted)
-    and adds to term level similarity matrix
-
-    :param summarize: Obj of Similarity_Matrix
-    :param tweets: list of tokenized tweets
-    """
-
-    tweet_count = summarize.tweet_count()
-
-    for i in range(0, tweet_count - 1):
-        for j in range(i + 1, tweet_count):
-
-            vec1 = Counter(tweets[i])  # Creating a counter object ,
-            vec2 = Counter(tweets[j])  # Which gives us number of each word in the sentence
-
-            intersection = set(vec1.keys()) & set(vec2.keys())  # intersection of sentences
-            numerator = sum([vec1[x] * vec2[x] for x in intersection])  # calculating cosine similarity
-
-            sum1 = sum([vec1[x] ** 2 for x in vec1.keys()])
-            sum2 = sum([vec2[x] ** 2 for x in vec2.keys()])
-            denominator = math.sqrt(sum1) * math.sqrt(sum2)
-
-            if not denominator:  # if one of the sentences is empty, denominator is 0
-                summarize.increase_term_level_sim(i, j, 0.0)
-            else:
-                inc_value = float(numerator) / denominator
-                summarize.increase_term_level_sim(i, j, inc_value * 10)  # increase similarity value
-
-            # todo: Levenshtein Distance
-            # second part - Lenevshetin distance
-            for word1 in tweets[i]:
-                for word2 in tweets[j]:
-                    # print("len: ", len(max(word1, word2)))
-                    # print("ed: ", ed.eval(word1, word2))
-                    L_dist = len(max(word1, word2)) - ed.eval(word1, word2)
-                    if L_dist > 0:
-                        summarize.increase_term_level_sim(i, j, L_dist)
-
-
-############################################################################################
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END of calc_cosine(summarize, tweets) ~~~~~~~~~~~~~~~~~~~~~#
-############################################################################################
-
-# TODO: SEMANTIC SIMILARITY:
-def calc_semantic_sim(summarize, tweets):
-    """
-    Calculates semantic similarity between tweets using WordNet: Similar synset and shortest path similarity
-
-    :param summarize: Obj of Similarity_Matrix
-    :param tweets: list of tokenized tweets
-
-    """
-
-    count = summarize.tweet_count()
-
-    # calculating common synsets of two tweets
-    for i in range(0, count):
-        for j in range(i, count - 1):
-            t1 = []  # keeps all synsets of words in tweet1
-            t2 = []  # and tweet 2
-            for word in tweets[i]:
-                t1 = t1 + wt.synsets(word)
-
-            for word in tweets[j]:
-                t2 += wt.synsets(word)
-
-            t3 = set(t1).intersection(set(t2))  # intersection of t1 and t2
-            summarize.increase__semantic_sim(i, j, len(t3))  # len of the intersection is our similarity value
-
-
-############################################################################################
-# ~~~~~~~~~~~~~~~~~  END of cacl_semantic_sim(summarize, tweets)~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-############################################################################################
 # TODO: Selecting similar tweets
 def select_summarize(summarize, *args):
-    similarity = summarize.get__similarity_graph()
+    """
+    Selects summary tweet. for clustered and non-clustered tweets
+
+    :param summarize: Object of Similarity_Matrix
+    :param args: for non-clustered tweets , leave empty, for clustered tweets, send list of labels in a cluster
+    :return:
+    """
+
+    similarity = summarize.get__value('similarity')
     t_similarity = similarity.transpose()
 
     # summarizing with clustering
+    # selects most weighted tweet in the cluster
     if len(args) == 1:
         label_id = args[0]
         count = len(label_id)
@@ -190,6 +122,7 @@ def select_summarize(summarize, *args):
         print("{}".format(summarize.get__tweets(label_id[index])))
 
     # summarizing without clustering
+    # selects most weighted tweet in the set
     else:
         count = summarize.tweet_count()
         weight_1 = np.zeros(count, dtype=np.int64)
@@ -211,9 +144,12 @@ def select_summarize(summarize, *args):
 # TODO: !!!! BIG PROBLEM !!!! TOTALLY EMPTY TWEETS AFTER PREPROCESS
 
 def write2File(dataset):
-    ''' writes cleaned tweets to a file and creates a list of cleaned tweets
-        \nreturn - list of cleaned tweets
-    '''
+    """
+    writes cleaned tweets to a file and creates a list of cleaned tweets
+
+    :param dataset: tweet list
+    :return: list of cleaned tweet
+    """
 
     # writing to a file
     try:
@@ -241,15 +177,74 @@ def write2File(dataset):
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  END of write2File(dataset)~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 ############################################################################################
 
-def cluster(summarize):
-    pass
 
+def calc_ces(summarize, tweets):
+    """
+    Calculates Cosine similarity, Edit distance and Semantic similarity between tweets
+
+    :param summarize: Object of Similarity_Matrix class. Keeps data
+    :param tweets: tokenized tweets
+    """
+
+    tweet_count = summarize.tweet_count()
+
+    print("Calculating cosine similarity , Levensthein distance and Semantic similarity...", end='')
+
+    for i in range(0, tweet_count - 1):
+        for j in range(i + 1, tweet_count):
+
+            # todo: cosine similarity
+            vec1 = Counter(tweets[i])  # Creating a counter object ,
+            vec2 = Counter(tweets[j])  # Which gives us number of each word in the sentence
+
+            intersection = set(vec1.keys()) & set(vec2.keys())  # intersection of sentences
+            numerator = sum([vec1[x] * vec2[x] for x in intersection])  # calculating cosine similarity
+
+            sum1 = sum([vec1[x] ** 2 for x in vec1.keys()])
+            sum2 = sum([vec2[x] ** 2 for x in vec2.keys()])
+            denominator = math.sqrt(sum1) * math.sqrt(sum2)
+
+            if not denominator:  # if one of the sentences is empty, denominator is 0
+                summarize.increase_value('ed', i, j, 0.0)
+            else:
+                inc_value = float(numerator) / denominator
+                summarize.increase_value('cosine', i, j, inc_value * 10)  # increase similarity value
+
+            # todo: Levenshtein Distance and Semantic similarity
+            # second part - Lenevshetin distance
+
+            synset_of_t1 = []  # keeps all synsets of words in tweet1
+            synset_of_t2 = []  # and tweet2
+
+            for word1 in tweets[i]:
+                # counting synsets for word1 for semantic similarity
+                synset_of_t1 = synset_of_t1 + wt.synsets(word1)
+
+                for word2 in tweets[j]:
+                    # counting synsets for word2 for semantic similarity
+                    synset_of_t2 += wt.synsets(word2)
+
+                    L_dist = len(max(word1, word2)) - ed.eval(word1, word2)
+                    if L_dist > 0:
+                        summarize.increase_value('ed', i, j, L_dist)
+
+            synset_intersection_count = set(synset_of_t1).intersection(set(synset_of_t2))  # intersection of t1 and t2
+
+            # len of the intersection is our similarity value
+            summarize.increase_value('semantic', i, j, len(synset_intersection_count))
+
+    print("OK!")
+
+############################################################################################
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  END of ces(summarize, tweets)~~~~~~~~~~~~~~~~~~~~~~~~~~#
+############################################################################################
 
 def main():
+    start_time = time.time()
     fin_name = "California_test\\cal_500.txt"  # result set file
     print("Opening and reading tweets...", end='')
     summarize = SMM()
-    summarize.openFile(fin_name)  # opening file
+    summarize.openFile(fin_name, encodeWith='utf_8')  # opening file
     print('OK!')
 
     # number of lines in our tweet set
@@ -257,7 +252,7 @@ def main():
 
     # initializing matrices with 0
     print('Initializing matrices with value 0...', end='')
-    summarize.initialize(tweet_count)
+    summarize.initialize()
     print('OK!')
 
     # count UHU
@@ -270,35 +265,18 @@ def main():
     new_tweets = noiseCleaning(summarize)
     print("OK!")
 
-    # Calculating cosine similarity and Levensthein distance
-    print("Calculating cosine similarity and Levensthein distance...", end='')
-    calc_cosine(summarize, new_tweets)
-    print('OK!')
-
-    # Calculating semantic similarity over WordNet
-    print("Calculating semantic similarity...", end='')
-    calc_semantic_sim(summarize, new_tweets)
-    print('OK!')
+    # TODO: calculate edit distance, cosine similarity and semantic similarity together
+    calc_ces(summarize, new_tweets)
 
     # creating similarity graph = term_level + semantic_level
     print("Creating similarity graph...", end='')
     summarize.create_similarity_graph()
     print('OK!')
 
-    # print("random value test: ")
-    # for in1 in range(3, 30, 5):
-    #     in2 = 65
-    #     print("for {},{} -> \nterm: {}\nsemantic: {}\ngraph: {}\n".format(in1, in2,
-    #                                                                       summarize.get__term_level_sim(in1,
-    #                                                                                                in2),
-    #                                                                       summarize.get__semantic_sim(in1,
-    #                                                                                              in2),
-    #                                                                       summarize.get__similarity_graph(in1,in2)))
-
     # TODO : CLUSTERING
     # clustering similar tweets
     print("Clustering results...", end='')
-    cluster_labels = hc.cluster(summarize.get__similarity_graph())
+    cluster_labels = hc.cluster(summarize.get__value('similarity'))
     print("OK!")
     #
     print("Selecting top tweets...\n")
@@ -316,9 +294,10 @@ def main():
     # summarize.printSlice(summarize.get__similarity_graph(), [125, 125, 150, 150], 2)
     # summarize.printSlice(summarize.get__similarity_graph(), round_step=2)
 
+    print("\nEVERYTHING is OK, CONGRATULATIONS...")
+    end_time = time.time()
 
-    print("\nEVERYTHING is OK, CONGRATULATIONS... ")
-
+    print("\nWork time = ", end_time-start_time)
 
 ######################################################################################################
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  END of main() ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#

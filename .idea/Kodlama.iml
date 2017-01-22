@@ -6,7 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="python" />
     <orderEntry type="module" module-name="python" />
-    <orderEntry type="module" module-name="projects_with_py3.6" />
+    <orderEntry type="module" module-name="TInter_Tutorial" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

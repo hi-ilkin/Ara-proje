@@ -1,7 +1,7 @@
 import numpy as np
 import data_normalizer as nz
-
-class Similarity_Matrix:
+import write2Excel as we
+class SimilarityMatrix:
     __UHU = []                  # username, hashtag, url
     __cosine_similarity = []    # cosine similariry values
     __edit_distance = []        # edit distance values
@@ -19,22 +19,21 @@ class Similarity_Matrix:
     keeps mnemonics for all matrices - uhu, cosine, ed, semantic, similarity
     """
 
-    def initialize(self, tweet_count):
+    def initialize(self):
         """
         initialize all matrices with 0
 
-        :param tweet_count: number of total tweets in dataset
-        :return:
         """
+        tweet_count = self.tweet_count()
         for key in self.__key_map:
-            key = np.zeros((tweet_count, tweet_count))
+            self.__key_map[key] = np.zeros((tweet_count, tweet_count))
 
     # #######################  ~~~~~~~ GETTER ~~~~~~~  ####################### #
     def get__value(self, key, *args):
         """
         returns value/row/all of given matrix
 
-        :param key: mnemonic of the matrix
+        :param key: mnemonic of the matrix (uhu, cosine, ed, semantic, similarity)
         :param args: no args - returns all values in the given matrix, 1 value  - row, 2 values - a value in given row,col
         :return: all of matrix, a row in the given matrix or a value
         """
@@ -61,7 +60,7 @@ class Similarity_Matrix:
         """
         Sets value to the given index
 
-        :param key: mnemonic of the matrix
+        :param key: mnemonic of the matrix - uhu, cosine, ed, semantic, similarity
         :param row: row value in matrix
         :param col: column value in given matrix
         :param value: new value
@@ -79,32 +78,27 @@ class Similarity_Matrix:
         """ Increases value of given matrix with given value.
             After all values added, normalizes all values
 
-        :param key: mnemonic of the matrix
+        :param key: mnemonic of the matrix - uhu, cosine, ed, semantic, similarity
         :param row: row value in similarity matrix or row-th tweet
         :param col: col value in similarity matrix or col-th tweet
         :param inc_value: increment value
         """
         self.__key_map[key][row][col] += inc_value
 
-        # normalization version
-        # if row == self.tweet_len() - 2 and col == self.tweet_len() - 1:
-        #     self.__term_level_sim[row][col] += inc_value
-        #     print("Before normilize ,{}-{}".format(row,col))
-        #     self.printSlice(self.__term_level_sim, [250, 250, 255, 255])
-        #     self.__term_level_sim = nz.minMax(self.__term_level_sim, self.__normilize_max, self.__normilize_min)
-        #     print("\nAfter normilize ")
-        #     self.printSlice(self.__term_level_sim, [250, 250, 255, 255])
-        #
-        # else:
-        #     self.__term_level_sim[row][col] += inc_value
-
+    # #####################  ~~~~~~~ CREATING SIMILARITY GRAPH ~~~~~~~  ##################### #
     def create_similarity_graph(self):
+        # TODO: normilize before adding similarity graph
         # normalizing edit distance values between 0-10
         self.__key_map['ed'] = nz.minMax(self.__key_map['ed'], self.__normilize_max, self.__normilize_min)
+        self.__key_map['semantic'] = nz.minMax(self.__key_map['semantic'], self.__normilize_max, self.__normilize_min)
 
         for key in self.__key_map:
             if key != 'similarity':
-                self.__key_map['similarity'] += key
+                self.__key_map['similarity'] += self.__key_map[key]
+
+            # writing results to an excel workbook
+            we.write2Excel(self.__key_map[key], key)
+        we.write2Excel(self.__key_map['similarity'], 'similarity')
 
     # #######################  ~~~~~~~ RAW TWEETS ~~~~~~~  ####################### #
     def get__tweets(self, *args):
@@ -152,7 +146,7 @@ class Similarity_Matrix:
     def printSlice(self, key, coordinate=[0, 0, 99, 99], round_step=5):
         """
         Prints given part of matrix to the screen
-        :param key: mnemonic of the matrix
+        :param key: mnemonic of the matrix - uhu, cosine, ed, semantic, similarity
         :param coordinate: print slice, first 2 top-left coordinate of slice, last 2 bottom-right coordinate
         :param round_step: rounds results with given step, default 5
         """
