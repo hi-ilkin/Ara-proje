@@ -9,7 +9,7 @@ import preprocess_and_create_arff as prep
 import tweet_preprocessor as tp
 import editdistance as ed
 from nltk.corpus import wordnet as wt
-from SimilarityMatrix import SimilarityMatrix as SMM
+from AllData import SimilarityMatrix as SMM
 import Hierarchical_clustering as hc
 from normalizr import Normalizr
 

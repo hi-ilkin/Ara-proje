@@ -1,14 +1,24 @@
 import numpy as np
 import data_normalizer as nz
 import write2Excel as we
+
+
 class SimilarityMatrix:
-    __UHU = []                  # username, hashtag, url
-    __cosine_similarity = []    # cosine similariry values
-    __edit_distance = []        # edit distance values
-    __term_level_sim = []       # term level similarity graph
-    __semantic_sim = []         # semantic similarity graph
-    __similarity_graph = []     # total similarity = term + semantic
-    __tweets = []               # a list that keeps all tweets
+    __UHU = []  # username, hashtag, url
+    __cosine_similarity = []  # cosine similariry values
+    __edit_distance = []  # edit distance values
+    __term_level_sim = []  # term level similarity graph
+    __semantic_sim = []  # semantic similarity graph
+    __similarity_graph = []  # total similarity = term + semantic
+    __tweets = []  # a list that keeps all tweets
+
+    __raw_train = []
+    __raw_test = []
+
+    __ready_test = []
+    __ready_train = []
+
+    __positive_tweets = []
 
     __normilize_max = 10
     __normilize_min = 0
@@ -17,6 +27,12 @@ class SimilarityMatrix:
                  "similarity": __similarity_graph}
     """
     keeps mnemonics for all matrices - uhu, cosine, ed, semantic, similarity
+    """
+
+    __tweet_key_map = {'rawtrain': __raw_train, 'rawtest': __raw_test, 'train': __ready_train, 'test': __ready_test,
+                       'positive': __positive_tweets}
+    """
+    keeps mnemonics for all tweet sets - rawtrain, rawtest, train, test, positive
     """
 
     def initialize(self):
@@ -34,7 +50,8 @@ class SimilarityMatrix:
         returns value/row/all of given matrix
 
         :param key: mnemonic of the matrix (uhu, cosine, ed, semantic, similarity)
-        :param args: no args - returns all values in the given matrix, 1 value  - row, 2 values - a value in given row,col
+        :param args: no args - returns all values in the given matrix, 1 value  - row, 2 values -
+                    a value in given row,col
         :return: all of matrix, a row in the given matrix or a value
         """
         # returns all similarity matrix
@@ -101,30 +118,34 @@ class SimilarityMatrix:
         we.write2Excel(self.__key_map['similarity'], 'similarity')
 
     # #######################  ~~~~~~~ RAW TWEETS ~~~~~~~  ####################### #
-    def get__tweets(self, *args):
+    def get__tweets(self, dataset_name, *args):
         """
         Returns raw tweet in the given index
+        :param dataset_name: name of the dataset to return
         :param args: if nothing given, returns all tweets in dataset, else returns tweet in given line
-        :return: raw tweet
+        :return: raw or preprocess set of tweets
         """
         if len(args) == 0:
-            return self.__tweets
+            return self.__tweet_key_map[dataset_name]
 
         elif len(args) > 1:
             raise ValueError("get_tweets expected at most 1 argument got {} .".format(len(args)))
 
         else:
             index = args[0]
-            return self.__tweets[index]
+            return self.__tweet_key_map[dataset_name][index]
 
     # #######################  ~~~~~~~ TWEET COUNT ~~~~~~~  ####################### #
     def tweet_count(self):
         return len(self.__tweets)
 
     # #####################  ~~~~~~~ OPENING FILE ~~~~~~~  ####################### #
-    def openFile(self, fin_name, encodeWith=None):
+    def openFile(self, fin_name, set_name, encodeWith=None):
         """
         Open's and writes all tweets to a set line by line
+
+        :param raw_train:
+        :param raw_test:
         :param fin_name: dataset name
         :param encodeWith: default none, encoding technique for given file
         """
@@ -136,13 +157,34 @@ class SimilarityMatrix:
             print("Something bad happened with files:\n", e)
             exit(-1)
 
+        if set_name == 'train':
         # reading all file to a list, so working on them will be easier
-        for line in fin:
-            line = line.lower()  # case fold all tweets
-            line = line.strip()  # strip blank spaces from starting and end
-            self.__tweets.append(line)
+            for line in fin:
+                line = line.strip()  # strip blank spaces from starting and end
 
-    # #####################  ~~~~~~~ PRINT SLICE ~~~~~~~  ##################### #
+                # appending to raw train list
+                self.__tweet_key_map['rawtrain'].append(line+'\n')
+
+                line = line.lower()  # case fold all tweets
+                self.__tweet_key_map['train'].append(line)
+
+            return self.__tweet_key_map['rawtrain']
+
+        elif set_name == 'test':
+            # reading all file to a list, so working on them will be easier
+            for line in fin:
+                line = line.strip()  # strip blank spaces from starting and end
+
+                # appending to raw train list
+                self.__tweet_key_map['rawtest'].append(line + '\n')
+
+                line = line.lower()  # case fold all tweets
+                self.__tweet_key_map['test'].append(line)
+
+            return self.__tweet_key_map['rawtest']
+
+
+            # #####################  ~~~~~~~ PRINT SLICE ~~~~~~~  ##################### #
     def printSlice(self, key, coordinate=[0, 0, 99, 99], round_step=5):
         """
         Prints given part of matrix to the screen

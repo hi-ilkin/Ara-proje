@@ -17,17 +17,13 @@ path = "data/"
 fname = "etiketli_tweet.txt"
 class_name = "nagano_"
 processed_path = 'processed_data/'
-
 def main():
-
     filepath = path+class_name+fname
     openFile(filepath)
 
-    print("DONE...")
-
-
 def openFile(filename):
-    """"Etiketli tvitlerin bulundugu dosyayi acar, tvitlerin hepsi kucuk harf olacak sekilde donusturur ve bir liste yazar """
+    """"Etiketli tvitlerin bulundugu dosyayi acar, tvitlerin hepsi kucuk harf olacak sekilde donusturur ve bir liste yazar \
+    """
 
     try:
         # to skip non printable ascii chars, use this
@@ -49,12 +45,13 @@ def openFile(filename):
 
 
 def tokenizeTweet(dataset,flabel='labels.txt',ftoken='token.txt',writeFile=True):
-    '''Tokenizes data , splits label values after getting cleared data , writes file
-    \n - dataset - dataset that tokenized
-    \n - flabel - file name for labels
-    \n - ftoken - file name for tokens - every word in a sentence
-    \n - writeFile - default value True, write or do not write to a file
-    '''
+    """Tokenizes data , splits label values after getting cleared data , writes file
+
+    :param dataset: dataset that tokenized
+    :param flabel: file name for labels
+    :param ftoken:  file name for tokens - every word in a sentence
+    :param writeFile default value True, write or do not write to a file
+    """
 
 
     pos_pattern = re.compile('\A[-]*[0-3]+')
